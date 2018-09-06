@@ -39,14 +39,14 @@ void lyra2z_hash(const char* input, char* output)
 {
     sph_blake256_context     ctx_blake;
 
-    uint32_t hashA[8], hashB[8];
+    uint32_t hashB[8], hashA[8];
 
     sph_blake256_init(&ctx_blake);
     sph_blake256 (&ctx_blake, input, 80);
     sph_blake256_close (&ctx_blake, hashA);	
 	
-	LYRA2(hashB, 32, hashA, 80, hashA, 80, 2, 330, 256);
+	LYRA2(hashA, 32, hashB, 80, hashB, 80, 2, 330, 256);
 	
-	memcpy(output, hashB, 32);
+	memcpy(output, hashA, 32);
 }
 
