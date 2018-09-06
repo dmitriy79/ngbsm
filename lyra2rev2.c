@@ -37,13 +37,13 @@
 void lyra2rev2_hash(const char* input, char* output, uint32_t height)
 {
 
-    uint32_t hashB[8];
+    uint32_t hashA[8];
 
 
-	LYRA2((void*)hashB, 32, (const void*)input, 80, (const void*)input, 80, 2, 330, 256);
+	LYRA2((void*)hashA, 32, (const void*)input, 80, (const void*)input, 80, 2, 330, 256);
 
 
-	memcpy(output, hashB, 32);
+	memcpy(output, hashA, 32);
 }
 
 
